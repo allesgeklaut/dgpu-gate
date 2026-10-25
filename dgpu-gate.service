@@ -1,0 +1,10 @@
+[Unit]
+Description=Gate power to unused NVIDIA dGPU (ThinkPad Yoga 460)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/dgpu-gate.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

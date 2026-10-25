@@ -1,0 +1,8 @@
+#!/bin/bash
+# Re-gate the dGPU after resume: S3 wake re-powers the GPU (BIOS POST),
+# while the firmware's "already off" flag survives in RAM. _ON re-syncs
+# the bookkeeping, _OFF gates again. See /usr/local/sbin/dgpu-gate.sh.
+if [ "$1" = "post" ]; then
+    /usr/local/sbin/dgpu-gate.sh || true
+fi
+exit 0
